@@ -19,13 +19,14 @@ function setup() {
 function draw() {
   background(15, 10, 25);
   
-  fill(200, 200, 50);
+ fill(45, 140, 40);
   rect(0, 400, 500, 100);
 
   if (juegoIniciado && !juegoTerminado) {
     mulls(m.x, m.y);
   }
 
+  // Pilares color naranja calabaza
   pillars(35, 280, 120);
   pillars(125, 310, 90);
   pillars(215, 255, 145);
@@ -75,14 +76,15 @@ function draw() {
 }
 
 function pillars(x, y, z) {
-  fill(220, 255, 230);
+  // Tono naranja calabaza
+  fill(235, 110, 20);
   rect(x, y, 60, z);
   fill(20);
 }
 
 function drawGhost(x, y) {
   noStroke();
-  fill(220, 200, 200);
+ fill(255, 220, 50);
   ellipse(x, y, 60, 60);
 
   fill(20);
@@ -110,7 +112,6 @@ function mulls(x, y) {
 }
 
 function mousePressed() {
-
   if (!juegoIniciado) {
     juegoIniciado = true;
     return;
@@ -177,9 +178,5 @@ function spawnMulls() {
     y: p.y - 20
   };
 
-  if (random(1) < 0.3) {
-    esBomba = true;
-  } else {
-    esBomba = false;
-  }
+  esBomba = random(1) < 0.3;
 }
